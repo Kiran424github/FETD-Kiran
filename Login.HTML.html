@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome to the User Authentication System</h1>
+    <h1>Login</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li class="{{ message_category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    
+    <form method="POST">
+        {% comment %} {{ form.hidden_tag() }} {% endcomment %}
+        <div>
+            {{ form.username.label }}
+            {{ form.username }}
+        </div>
+        <div>
+            {{ form.password.label }}
+            {{ form.password }}
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+    <p>If you are new register here: </p>
+    <a href="{{ url_for('register') }}">Register</a>
+</body>
+</html>
+

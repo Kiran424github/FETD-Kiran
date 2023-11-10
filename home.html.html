@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            border-radius: 50%;
+            margin-top: 20px;
+            width: 150px; /* Adjust the size as needed */
+            height: 150px; /* Adjust the size as needed */
+            object-fit: cover;
+            border: 3px solid #fff; /* White border around the image */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+        }
+
+        p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Time: {{ time }}</p>
+    <img src="{{ user_info.picture }}" alt="Profile Picture">
+    {% if profile_picture %}
+        <img src="{{ profile_picture }}" alt="Profile Picture">
+    {% endif %}
+    <p>Hello, {{ user_info.name }}</p>
+    <p>You are signed in with the email {{ user_info.email }}</p>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
